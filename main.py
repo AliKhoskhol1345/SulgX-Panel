@@ -111,7 +111,7 @@ if CONFIG["database_url"] and HAS_POSTGRES:
                     active BOOLEAN DEFAULT TRUE, expires_at TEXT,
                     custom_path TEXT DEFAULT '', custom_sni TEXT DEFAULT '',
                     custom_host TEXT DEFAULT '', custom_fp TEXT DEFAULT 'chrome',
-                    color TEXT DEFAULT '#39ff14',
+                    color TEXT DEFAULT '#7c3aed',
                     flag TEXT DEFAULT '',
                     fragment TEXT DEFAULT ''
                 );
@@ -179,7 +179,7 @@ else:
                 active INTEGER DEFAULT 1, expires_at TEXT,
                 custom_path TEXT DEFAULT '', custom_sni TEXT DEFAULT '',
                 custom_host TEXT DEFAULT '', custom_fp TEXT DEFAULT 'chrome',
-                color TEXT DEFAULT '#39ff14',
+                color TEXT DEFAULT '#7c3aed',
                 flag TEXT DEFAULT '',
                 fragment TEXT DEFAULT ''
             );
@@ -286,7 +286,7 @@ async def load_initial_data():
             "uid": default_uuid, "label": "This Server is Free", "limit_bytes": 0, "used_bytes": 0,
             "max_connections": 0, "created_at": now, "active": 1, "expires_at": None,
             "custom_path": "", "custom_sni": "", "custom_host": "", "custom_fp": "chrome",
-            "color": "#39ff14", "flag": "", "fragment": ""
+            "color": "#7c3aed", "flag": "", "fragment": ""
         }
         async with LINKS_LOCK:
             LINKS[default_uuid] = default_link
@@ -1069,7 +1069,7 @@ async def restore_backup(request: Request, _=Depends(require_auth)):
             custom_sni = link.get("custom_sni", "")
             custom_host = link.get("custom_host", "")
             custom_fp = link.get("custom_fp", "chrome")
-            color = link.get("color", "#39ff14")
+            color = link.get("color", "#7c3aed")
             flag = link.get("flag", "")
             fragment = link.get("fragment", "")
             await db_execute(
@@ -1138,7 +1138,7 @@ async def create_link(request: Request, _=Depends(require_auth)):
     custom_sni = body.get("custom_sni", "")
     custom_host = body.get("custom_host", "")
     custom_fp = body.get("custom_fp", "chrome")
-    color = body.get("color", "#39ff14")
+    color = body.get("color", "#7c3aed")
     flag = body.get("flag", "")
     fragment = body.get("fragment", "")
     if flag:
@@ -1201,7 +1201,7 @@ async def list_links(_=Depends(require_auth)):
             "custom_sni": extra["custom_sni"],
             "custom_host": extra["custom_host"],
             "custom_fp": extra["custom_fp"],
-            "color": row.get("color", "#39ff14"),
+            "color": row.get("color", "#7c3aed"),
             "flag": row.get("flag", ""),
             "fragment": row.get("fragment", ""),
             "current_connections": await count_connections_for_link(uid),
@@ -1242,7 +1242,7 @@ async def import_links(request: Request, _=Depends(require_auth)):
         custom_sni = item.get("custom_sni", "")
         custom_host = item.get("custom_host", "")
         custom_fp = item.get("custom_fp", "chrome")
-        color = item.get("color", "#39ff14")
+        color = item.get("color", "#7c3aed")
         flag = item.get("flag", "")
         fragment = item.get("fragment", "")
         if flag:
@@ -1537,7 +1537,7 @@ async def user_dashboard(uid: str, request: Request):
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e0e0e0;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}}
 .card{{background:rgba(20,20,20,0.9);border:1px solid rgba(57,255,20,0.15);border-radius:24px;padding:36px 24px;max-width:420px;width:100%;box-shadow:0 0 40px rgba(57,255,20,0.1);text-align:center;}}
-h1{{color:#39ff14;font-size:1.8rem;margin-bottom:8px;font-weight:800;}}
+h1{{color:#7c3aed;font-size:1.8rem;margin-bottom:8px;font-weight:800;}}
 .subtitle{{color:#a0a0a0;font-size:0.9rem;margin-bottom:24px;}}
 .info-box{{background:rgba(255,255,255,0.03);border-radius:16px;padding:16px;margin-bottom:24px;text-align:left;}}
 .row{{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.95rem;}}
@@ -1549,11 +1549,11 @@ h1{{color:#39ff14;font-size:1.8rem;margin-bottom:8px;font-weight:800;}}
 .progress-text{{font-size:0.8rem;color:#aaa;margin-top:4px;text-align:right;}}
 .qr{{background:#fff;padding:12px;border-radius:16px;display:inline-block;margin-bottom:24px;}}
 .qr img{{display:block;border-radius:8px;}}
-.btn{{display:flex;align-items:center;justify-content:center;width:100%;padding:14px;background:linear-gradient(135deg,#39ff14,#1a8c1a);color:#000;font-weight:800;border-radius:12px;text-decoration:none;transition:all 0.2s;margin-bottom:12px;border:none;cursor:pointer;font-family:inherit;font-size:1rem;}}
+.btn{{display:flex;align-items:center;justify-content:center;width:100%;padding:14px;background:linear-gradient(135deg,#7c3aed,#1a8c1a);color:#000;font-weight:800;border-radius:12px;text-decoration:none;transition:all 0.2s;margin-bottom:12px;border:none;cursor:pointer;font-family:inherit;font-size:1rem;}}
 .btn:hover{{filter:brightness(1.1);box-shadow:0 0 20px rgba(57,255,20,0.3);}}
-.btn-outline{{background:transparent;color:#39ff14;border:2px solid rgba(57,255,20,0.3);}}
+.btn-outline{{background:transparent;color:#7c3aed;border:2px solid rgba(57,255,20,0.3);}}
 .btn-outline:hover{{background:rgba(57,255,20,0.1);box-shadow:none;}}
-#toast{{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#39ff14;color:#000;padding:10px 20px;border-radius:30px;font-weight:700;opacity:0;transition:opacity 0.3s;pointer-events:none;}}
+#toast{{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#000;padding:10px 20px;border-radius:30px;font-weight:700;opacity:0;transition:opacity 0.3s;pointer-events:none;}}
 </style>
 </head>
 <body>
@@ -1986,7 +1986,7 @@ PANEL_HTML = r"""<!DOCTYPE html>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --primary:#39ff14; --primary-dim:rgba(57,255,20,0.12);
+  --primary:#7c3aed; --primary-dim:rgba(57,255,20,0.12);
   --bg:#0a0a0a; --bg2:#121212; --bg3:#1a1a1a;
   --surface:rgba(20,20,20,0.85); --surface2:rgba(30,30,30,0.9); --surface3:rgba(40,40,40,0.8);
   --border:rgba(57,255,20,0.08); --border2:rgba(57,255,20,0.2);
@@ -2049,7 +2049,7 @@ a{text-decoration:none;color:inherit;}
 .card-title{font-size:1rem;font-weight:600;color:var(--text);}
 .chart-container{height:200px;width:100%}
 .btn{font-family:inherit;font-size:0.9rem;font-weight:700;border-radius:10px;padding:6px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;border:none;transition:all 0.2s;}
-.btn-primary{background:linear-gradient(135deg,#39ff14,#1a8c1a);color:#000;box-shadow:0 0 16px rgba(57,255,20,0.3)}
+.btn-primary{background:linear-gradient(135deg,#7c3aed,#1a8c1a);color:#000;box-shadow:0 0 16px rgba(57,255,20,0.3)}
 .btn-primary:hover{filter:brightness(1.2);box-shadow:0 0 24px rgba(57,255,20,0.5)}
 .btn-outline{background:var(--surface3);color:var(--text);border:1px solid var(--border)}
 .btn-danger{background:rgba(248,113,113,0.1);color:var(--red);border:1px solid rgba(248,113,113,0.2)}
@@ -2194,10 +2194,10 @@ body[dir="rtl"] .header{left:auto;right:0;border-right:0;border-left:1px solid v
       <div style="text-align:center;margin-bottom:32px;">
         <svg width="100%" viewBox="0 0 180 80" height="100%">
           <rect width="180" height="80" rx="12" fill="var(--primary)" fill-opacity="0.1"/>
-          <text x="90" y="58" font-family="'Orbitron',sans-serif" font-size="40" font-weight="900" fill="var(--primary)" text-anchor="middle">SulgX</text>
+          <text x="90" y="58" font-family="'Orbitron',sans-serif" font-size="40" font-weight="900" fill="var(--primary)" text-anchor="middle">Vipira</text>
         </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:900;color:var(--primary);margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px;">
-          SulgX Panel <span style="font-size:0.8rem; font-family:'Inter'; color:var(--bg); background:var(--primary); padding:2px 6px; border-radius:4px;">V 1.1.0</span>
+          Vipira Panel <span style="font-size:0.8rem; font-family:'Inter'; color:var(--bg); background:var(--primary); padding:2px 6px; border-radius:4px;">V 1.1.0</span>
         </div>
         <div style="font-size:1rem;color:var(--text3);margin-top:8px;" data-en="Enter your password" data-fa="رمز عبور را وارد کنید">Enter your password</div>
         <div id="login-custom-message" style="margin-top:20px; text-align:center; color:var(--text3); font-size:0.9rem;"></div>
@@ -2216,7 +2216,7 @@ body[dir="rtl"] .header{left:auto;right:0;border-right:0;border-left:1px solid v
   <header class="header">
     <div class="header-inner">
       <div style="display:flex;align-items:center;gap:16px;">
-        <span class="logo">SulgX</span><span class="version-tag">v1.1.0</span>
+        <span class="logo">Vipira</span><span class="version-tag">v1.1.0</span>
         <span id="panel-clock" style="font-weight:600;color:var(--primary);margin-left:8px;font-size:0.9rem;"></span>
         <nav class="header-nav" id="mainNav">
           <button class="nav-link active" data-page="dashboard">📊 <span data-en="Dashboard" data-fa="داشبورد">Dashboard</span></button>
@@ -2546,7 +2546,7 @@ example.com
     <div class="fg"><label class="fl" data-en="Traffic Limit (GB)" data-fa="محدودیت ترافیک (گیگابایت)">Traffic Limit (GB)</label><input class="fi" type="number" id="nv" min="0" step="0.1" value="0" placeholder="0 = Unlimited"></div>
     <div class="fg"><label class="fl" data-en="Max Connections" data-fa="حداکثر اتصالات">Max Connections</label><input class="fi" type="number" id="nc" min="0" value="0" placeholder="0 = Unlimited"></div>
     <div class="fg"><label class="fl" data-en="Validity (Days)" data-fa="اعتبار (روز)">Validity (Days)</label><input class="fi" type="number" id="nd" min="0" value="0" placeholder="0 = Unlimited"></div>
-    <div class="fg"><label class="fl" data-en="Color" data-fa="رنگ">Color</label><input type="color" id="alink-color" value="#39ff14"></div>
+    <div class="fg"><label class="fl" data-en="Color" data-fa="رنگ">Color</label><input type="color" id="alink-color" value="#7c3aed"></div>
     <div style="display:flex;gap:6px;margin-top:10px;"><button class="btn btn-primary" onclick="createLink()" style="flex:1;" data-en="Create" data-fa="ایجاد">Create</button><button class="btn btn-outline" onclick="document.getElementById('mo-add').classList.remove('show')" data-en="Cancel" data-fa="انصراف">Cancel</button></div>
   </div>
 </div>
@@ -2591,7 +2591,7 @@ example.com
     <div class="fg"><label class="fl" data-en="Traffic Limit (GB)" data-fa="محدودیت ترافیک (گیگابایت)">Traffic Limit (GB)</label><input class="fi" type="number" id="el" min="0" step="0.1" placeholder="0 = Unlimited"></div>
     <div class="fg"><label class="fl" data-en="Max Connections" data-fa="حداکثر اتصالات">Max Connections</label><input class="fi" type="number" id="ec" min="0" placeholder="0 = Unlimited"></div>
     <div class="fg"><label class="fl" data-en="Validity (Days)" data-fa="اعتبار (روز)">Validity (Days)</label><input class="fi" type="number" id="ed" min="0" placeholder="0 = Unlimited"></div>
-    <div class="fg"><label class="fl" data-en="Color" data-fa="رنگ">Color</label><input type="color" id="e-color" value="#39ff14"></div>
+    <div class="fg"><label class="fl" data-en="Color" data-fa="رنگ">Color</label><input type="color" id="e-color" value="#7c3aed"></div>
     <div style="display:flex;gap:6px;margin-top:10px;"><button class="btn btn-primary" onclick="saveEdit()" style="flex:1;" data-en="Save" data-fa="ذخیره">Save</button><button class="btn btn-danger btn-sm" onclick="resetTraf()" data-en="Reset Traffic" data-fa="بازنشانی ترافیک">Reset Traffic</button><button class="btn btn-outline" onclick="document.getElementById('mo-edit').classList.remove('show')" data-en="Cancel" data-fa="انصراف">Cancel</button></div>
   </div>
 </div>
@@ -3012,7 +3012,7 @@ async function createLink(){
     label,uuid,limit_value:v,limit_unit:'GB',max_connections:mc,days_valid:days,
     custom_path:$m('ap').value.trim(),custom_sni:$m('asni').value.trim(),
     custom_host:$m('ahost').value.trim(),custom_fp:$m('afp').value.trim(),
-    color:$m('alink-color')?.value||'#39ff14', flag: flagCode, fragment: fragment
+    color:$m('alink-color')?.value||'#7c3aed', flag: flagCode, fragment: fragment
   };
   try{
     await fetch('/api/links',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
@@ -3025,7 +3025,7 @@ function showEditMo(uid){
   $m('el').value=l.limit_bytes>0?(l.limit_bytes/1073741824):''; $m('ec').value=l.max_connections||''; $m('ed').value='';
   $m('ep').value=l.custom_path||''; $m('esni').value=l.custom_sni||''; $m('ehost').value=l.custom_host||''; $m('efp').value=l.custom_fp||'chrome';
   $m('efrag').value=l.fragment||'';
-  $m('e-color').value=l.color||'#39ff14';
+  $m('e-color').value=l.color||'#7c3aed';
   const flag = l.flag || '';
   $m('flag-code-edit').value = flag;
   const sel = $m('flag-select-edit');
@@ -3139,7 +3139,7 @@ function initChart(){
   const ctx=$m('tc'); if(!ctx||tChart)return;
   tChart=new Chart(ctx,{
     type:'bar',
-    data:{labels:[],datasets:[{label:'MB',data:[],backgroundColor:'rgba(57,255,20,0.6)',borderColor:'#39ff14',borderWidth:1,barPercentage:0.7,categoryPercentage:0.9}]},
+    data:{labels:[],datasets:[{label:'MB',data:[],backgroundColor:'rgba(57,255,20,0.6)',borderColor:'#7c3aed',borderWidth:1,barPercentage:0.7,categoryPercentage:0.9}]},
     options:{
       responsive:true, maintainAspectRatio:false,
       plugins:{legend:{display:false}},
@@ -3165,7 +3165,7 @@ function updChart(){
 }
 let doughnutChart=null;
 function initDoughnutChart(){const ctx=$m('doughnut-chart');if(!ctx||doughnutChart)return;doughnutChart=new Chart(ctx,{type:'doughnut',data:{labels:[],datasets:[{data:[],backgroundColor:[]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.raw>=1e9?(ctx.raw/1e9).toFixed(1)+' GB':(ctx.raw/1e6).toFixed(1)+' MB'}`}}}}});}
-function updDoughnutChart(){if(!doughnutChart)return;const labels=[],data=[],colors=[];allLinks.filter(l=>l.used_bytes>0).forEach(l=>{labels.push(l.label);data.push(l.used_bytes);colors.push(l.color||'#39ff14');});doughnutChart.data.labels=labels;doughnutChart.data.datasets[0].data=data;doughnutChart.data.datasets[0].backgroundColor=colors;doughnutChart.update();}
+function updDoughnutChart(){if(!doughnutChart)return;const labels=[],data=[],colors=[];allLinks.filter(l=>l.used_bytes>0).forEach(l=>{labels.push(l.label);data.push(l.used_bytes);colors.push(l.color||'#7c3aed');});doughnutChart.data.labels=labels;doughnutChart.data.datasets[0].data=data;doughnutChart.data.datasets[0].backgroundColor=colors;doughnutChart.update();}
 let speedChart=null,speedHistory=[];
 function initSpeedChart(){
   const ctx=$m('speed-chart');if(!ctx||speedChart)return;
