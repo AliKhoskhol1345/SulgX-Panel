@@ -2201,13 +2201,14 @@ body[dir="rtl"] .header{left:auto;right:0;border-right:0;border-left:1px solid v
         </div>
         <div id="login-custom-message" style="margin-top:20px; text-align:center; color:var(--text3); font-size:0.9rem;"></div>
       </div>
+      <div class="lang-switch" style="margin:0 auto 18px;width:max-content;">
+  <button class="lang-btn lang-en active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn lang-fa" onclick="setLang('fa')">FA</button>
+</div>
       <div class="fg"><label class="fl">PASSWORD</label><input class="fi" type="password" id="login-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
       <button class="btn btn-primary" onclick="doLogin()" style="width:100%;justify-content:center;padding:14px;margin-top:16px;">LOGIN</button>
       <div id="login-err" style="color:var(--red);font-size:0.9rem;margin-top:10px;text-align:center;display:none">Invalid password</div>
       <div style="margin-top:20px; text-align:center; display:flex; justify-content:center; gap:20px;">
-      <div class="lang-switch" style="margin:18px auto 0;width:max-content;">
-        <button class="lang-btn lang-en active" onclick="setLang('en')">EN</button>
-        <button class="lang-btn lang-fa" onclick="setLang('fa')">FA</button>
       </div>
       </div>
     </div>
