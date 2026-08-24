@@ -2887,8 +2887,6 @@ function setLang(l){
     renderAddrs();
     filterLinks();
   }
-  const footer = $m('footer-dedication');
-  if (footer) footer.innerHTML = footerTexts[l] || footerTexts['en'];
   document.querySelectorAll('#lang-glass-group .glass-btn').forEach(b => b.classList.remove('active'));
   const activeLangBtn = document.getElementById(`btn-lang-${l}`);
   if (activeLangBtn) activeLangBtn.classList.add('active');
