@@ -1980,7 +1980,7 @@ PANEL_HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>SulgX Panel</title>
+<title>Vipira Panel</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -2166,6 +2166,24 @@ body{background:radial-gradient(circle at 0 0,#1e1b4b 0,transparent 32%),var(--b
 body.light-mode{--primary:#4f46e5;--primary-dim:rgba(79,70,229,.12);--bg:#f6f7fb;--bg2:#fff;--bg3:#eef2ff;--surface:rgba(255,255,255,.94);--surface2:#fff;--surface3:#f8fafc;--border:rgba(15,23,42,.09);--border2:rgba(79,70,229,.32);--text:#172033;--text2:#475569;--text3:#64748b;background:radial-gradient(circle at 0 0,#e0e7ff 0,transparent 32%),var(--bg)}body.light-mode .header{background:rgba(255,255,255,.92)}body.light-mode .stat-card,body.light-mode .card{background:#fff}body.blue-mode{--primary:#818cf8;--primary-dim:rgba(129,140,248,.14)}
 body[dir="rtl"] .header{left:auto;right:0;border-right:0;border-left:1px solid var(--border)}body[dir="rtl"] .main,body[dir="rtl"] .footer{margin-left:0;margin-right:256px}body[dir="rtl"] .nav-link{text-align:right}.header-right{direction:ltr}
 @media(max-width:768px){.header{position:sticky;top:0;left:0;right:0;width:100%;height:auto;min-height:64px;padding:10px 14px;border-right:0;border-bottom:1px solid var(--border)}.header-inner{height:auto;display:flex;flex-direction:row;align-items:center;gap:8px}.header-inner>div:first-child{display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important}.header-nav,#panel-clock,.version-tag{display:none!important}.header-right{margin:0 0 0 auto;display:flex;gap:5px}.header-right .btn-outline,.header-right .btn-danger{display:none}.header-right .lang-switch,.header-right .btn-icon{display:block}.main{margin-left:0;padding:22px 14px 94px}.footer{margin-left:0;display:none}body[dir="rtl"] .header{right:0;border-left:0;border-bottom:1px solid var(--border)}body[dir="rtl"] .main{margin-right:0}.stats-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat-card{min-height:112px;padding:15px}.chart-container{height:220px}}@media(max-width:500px){.stats-row{grid-template-columns:1fr 1fr}.stat-val{font-size:1.35rem}.page-title{font-size:1.4rem}.card{padding:15px}}
+:root {
+  --primary: #7c3aed;
+  --primary-dim: rgba(124, 58, 237, .14);
+  --green: #60a5fa;
+  --border2: rgba(124, 58, 237, .42);
+}
+
+.status-glass-card.active {
+  background: rgba(96, 165, 250, .10);
+  border-color: rgba(96, 165, 250, .25);
+  color: #60a5fa;
+}
+
+.tag-on,
+.toggle.on,
+.act-sub {
+  color: #60a5fa;
+}
 </style>
 </head>
 <body>
